@@ -39,10 +39,8 @@ export function Place({ data, ...rest }: Props) {
       />
       <View className="flex-1">
         <Text className="text-sm font-medium text-gray-600">{data.name}</Text>
-        <Text className="text-xs font-regular text-gray-500">
-          {data.description.length > 90
-            ? data.description.substring(0, 90) + "..."
-            : data.description}
+        <Text numberOfLines={3} className="text-xs font-regular text-gray-500">
+          {data.description}
         </Text>
 
         <View className="flex flex-row gap-2 mt-3">

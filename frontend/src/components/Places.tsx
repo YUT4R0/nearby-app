@@ -1,5 +1,6 @@
 import { colors } from "@/styles/colors";
 import BottomSheet, { BottomSheetFlatList } from "@gorhom/bottom-sheet";
+import { router } from "expo-router";
 import React, { useRef } from "react";
 import { Text, useWindowDimensions } from "react-native";
 import { Place, PlaceProps } from "./Place";
@@ -32,7 +33,12 @@ export function Places({ data }: Props) {
       <BottomSheetFlatList
         data={data}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => <Place data={item} />}
+        renderItem={({ item }) => (
+          <Place
+            data={item}
+            onPress={() => router.navigate(`/market/${item.id}`)}
+          />
+        )}
         contentContainerStyle={{
           gap: 12,
           padding: 24,
